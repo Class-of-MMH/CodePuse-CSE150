@@ -20,6 +20,19 @@ public:int x;
     void moveRight();
 };
 
+class Balloon{
+public: int x,y;
+    char color;
+
+    Balloon(char c):color(c){
+        resetPosition();
+    }
+
+    void resetPosition();
+
+    void move();
+};
+
 int main(){
   
 cout<<"Instructions: "<<endl;
