@@ -11,6 +11,17 @@ const int NUM_BALLOONS=4;
 const int PIN_SPEED=5;
 const int BALLOON_SPEED=1;
 
+class Pin{
+public:
+    int x;
+
+    Pin():x(SCREEN_WIDTH/2){}
+
+    void moveLeft();
+
+    void moveRight();
+};
+
 int main(){
   
 cout<<"Instructions: "<<endl;
