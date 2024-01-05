@@ -60,6 +60,8 @@ int life=3;
                 }
             }
         }
+drawPin(pin, buffer);
+drawScoreLife(score, life);
   
 return 0;
 }
