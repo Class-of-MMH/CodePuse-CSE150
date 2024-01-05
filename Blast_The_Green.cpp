@@ -54,20 +54,27 @@ public: int x,y;
     }
 };
 
-void drawScoreLife(int score, int life){
-    COORD coord;
-    coord.X=SCREEN_WIDTH+3;
-    coord.Y=SCREEN_HEIGHT-3;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
-    cout<< "Score: "<<score<<" | Life: "<<life;
+
+void drawBalloon(const Balloon& balloon,char*buffer){
+    switch(balloon.color){
+        case 'g':
+            buffer[balloon.x+balloon.y*SCREEN_WIDTH]='G';
+            buffer[(balloon.x-1)+(balloon.y+1)*SCREEN_WIDTH]='G';
+            buffer[balloon.x+(balloon.y+1)*SCREEN_WIDTH]='G';
+            buffer[(balloon.x + 1) + (balloon.y + 1) * SCREEN_WIDTH]='G';
+            buffer[balloon.x+(balloon.y+2)*SCREEN_WIDTH]='G';
+            break;
+
+        case 'r':
+            buffer[balloon.x+balloon.y*SCREEN_WIDTH]='R';
+            buffer[(balloon.x-1)+(balloon.y+1)*SCREEN_WIDTH]='R';
+            buffer[balloon.x+(balloon.y+1)*SCREEN_WIDTH]='R';
+            buffer[(balloon.x+1)+(balloon.y +1)*SCREEN_WIDTH]='R';
+            buffer[balloon.x+(balloon.y+2)*SCREEN_WIDTH]='R';
+            break;
+    }
 }
 
-void gotoxy(int x, int y){
-    COORD coord;
-    coord.X=x;
-    coord.Y=y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
-}
 
 int main(){
   
