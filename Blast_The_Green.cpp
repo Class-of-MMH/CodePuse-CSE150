@@ -32,6 +32,18 @@ void drawPin(const Pin&pin,char*buffer){
     buffer[pin.x+(SCREEN_HEIGHT-2)*SCREEN_WIDTH]='^';
 }
 
+void drawBoundary(char*buffer){
+    for (int i = 0;i <SCREEN_WIDTH;++i){
+        buffer[i]='#';
+        buffer[i+(SCREEN_HEIGHT-1)*SCREEN_WIDTH]='#';
+    }
+
+    for (int i=1;i<SCREEN_HEIGHT-1;++i){
+        buffer[i*SCREEN_WIDTH]='#';
+        buffer[i*SCREEN_WIDTH+SCREEN_WIDTH-1]='#';
+    }
+}
+
 int main(){
   
 cout<<"Instructions: "<<endl;
