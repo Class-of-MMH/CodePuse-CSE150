@@ -76,6 +76,14 @@ balloons[i].resetPosition();
 }
 drawPin(pin, buffer);
 drawScoreLife(score, life);
+
+gotoxy(0, 0);
+for(int i=0; i<SCREEN_HEIGHT;++i){
+for(int j=0; j<SCREEN_WIDTH;++j) {
+cout<<buffer[j+i*SCREEN_WIDTH];
+}
+cout<<endl;
+}
   
 return 0;
 }
