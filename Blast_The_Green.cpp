@@ -92,7 +92,12 @@ void drawBoundary(char*buffer){
         buffer[i*SCREEN_WIDTH+SCREEN_WIDTH-1]='#';
     }
 }
-
+void gotoxy(int x, int y){
+    COORD coord;
+    coord.X=x;
+    coord.Y=y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
 
 int main(){
   
