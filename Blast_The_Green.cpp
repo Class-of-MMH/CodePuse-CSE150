@@ -28,7 +28,11 @@ public: int x,y;
         resetPosition();
     }
 
-    void resetPosition();
+
+ void resetPosition(){
+        x=rand()%(SCREEN_WIDTH-2)+1;
+        y=0;
+    }
 
      void move(){
         y+=BALLOON_SPEED;
