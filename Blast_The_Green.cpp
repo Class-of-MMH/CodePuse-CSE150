@@ -84,6 +84,12 @@ cout<<buffer[j+i*SCREEN_WIDTH];
 }
 cout<<endl;
 }
-  
+
+balloonTimer++;
+if(balloonTimer>=BALLOON_SPEED){
+balloonTimer=0;
+}
+Sleep(100);
+}
 return 0;
 }
