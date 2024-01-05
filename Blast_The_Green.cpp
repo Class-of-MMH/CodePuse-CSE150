@@ -69,6 +69,7 @@ score+=10;
 }else if(balloons[i].color == 'r'){
 life--;
 }
+    
 balloons[i].resetPosition();
 }
 }
