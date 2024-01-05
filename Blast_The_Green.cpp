@@ -15,7 +15,12 @@ class Pin{
 public:int x;
 
     Pin():x(SCREEN_WIDTH/2){}
-     void moveLeft();
+
+      void moveLeft(){
+        if(x>1){
+            x -=PIN_SPEED;
+        }
+    }
 
     void moveRight();
 };
