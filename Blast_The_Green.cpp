@@ -15,10 +15,22 @@ class Pin{
 public:int x;
 
     Pin():x(SCREEN_WIDTH/2){}
-     void moveLeft();
 
-    void moveRight();
+      void moveLeft(){
+        if(x>1){
+            x -=PIN_SPEED;
+        }
+    }
+
+     void moveRight(){
+        if(x<SCREEN_WIDTH-2){
+            x+=PIN_SPEED;
+        }
+    }
 };
+void drawPin(const Pin&pin,char*buffer){
+    buffer[pin.x+(SCREEN_HEIGHT-2)*SCREEN_WIDTH]='^';
+}
 
 class Balloon{
 public: int x,y;
@@ -64,8 +76,6 @@ void drawBalloon(const Balloon& balloon,char*buffer){
 }
 
 
-
-
 int main(){
   
 cout<<"Instructions: "<<endl;
@@ -80,32 +90,50 @@ system("pause");
 srand(static_cast<unsigned>(time(0)));
 char*buffer=new char[SCREEN_WIDTH*SCREEN_HEIGHT];
 memset(buffer, ' ', SCREEN_WIDTH*SCREEN_HEIGHT);
-Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g'};
+Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g','r'};
 Pin pin;
   
 int balloonTimer=0;
 int score=0;
 int life=3;
- while(life>0){
-        memset(buffer, ' ',SCREEN_WIDTH*SCREEN_HEIGHT);
+while(life>0){
+memset(buffer, ' ',SCREEN_WIDTH*SCREEN_HEIGHT);
 
-        drawBoundary(buffer);
+drawBoundary(buffer);
 
-        if(balloonTimer% BALLOON_SPEED==0){
-            for(int i=0;i<NUM_BALLOONS;++i){
-                balloons[i].move();
-                drawBalloon(balloons[i],buffer);
+if(balloonTimer% BALLOON_SPEED==0){
+for(int i=0;i<NUM_BALLOONS;++i){
+balloons[i].move();
+drawBalloon(balloons[i],buffer);
 
-                if(balloons[i].y==SCREEN_HEIGHT-2&&abs(balloons[i].x-pin.x)<2){
-                    if(balloons[i].color =='g'){
-                        score+=10;
-                    }else if(balloons[i].color == 'r'){
-                        life--;
-                    }
-                    balloons[i].resetPosition();
-                }
-            }
-        }
-  
+if(balloons[i].y==SCREEN_HEIGHT-2&&abs(balloons[i].x-pin.x)<2){
+if(balloons[i].color =='g'){
+score+=10;
+}else if(balloons[i].color == 'r'){
+life--;
+}
+    
+balloons[i].resetPosition();
+}
+}
+}
+    
+drawPin(pin, buffer);
+drawScoreLife(score, life);
+
+gotoxy(0, 0);
+for(int i=0; i<SCREEN_HEIGHT;++i){
+for(int j=0; j<SCREEN_WIDTH;++j) {
+cout<<buffer[j+i*SCREEN_WIDTH];
+}
+cout<<endl;
+}
+
+balloonTimer++;
+if(balloonTimer>=BALLOON_SPEED){
+balloonTimer=0;
+}
+Sleep(100);
+}
 return 0;
 }
