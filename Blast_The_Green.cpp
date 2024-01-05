@@ -22,7 +22,11 @@ public:int x;
         }
     }
 
-    void moveRight();
+     void moveRight(){
+        if(x<SCREEN_WIDTH-2){
+            x+=PIN_SPEED;
+        }
+    }
 };
 
 int main(){
