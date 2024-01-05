@@ -30,7 +30,12 @@ public: int x,y;
 
     void resetPosition();
 
-    void move();
+     void move(){
+        y+=BALLOON_SPEED;
+        if(y >= SCREEN_HEIGHT-1){
+            resetPosition();
+        }
+    }
 };
 
 int main(){
