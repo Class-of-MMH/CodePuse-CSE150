@@ -28,5 +28,9 @@ memset(buffer, ' ', SCREEN_WIDTH*SCREEN_HEIGHT);
 Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g'};
 Pin pin;
   
+int balloonTimer=0;
+int score=0;
+int life=3;
+  
 return 0;
 }
