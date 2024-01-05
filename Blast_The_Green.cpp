@@ -79,6 +79,7 @@ balloons[i].resetPosition();
 }
 }
 }
+    
 drawPin(pin, buffer);
 drawScoreLife(score, life);
 
