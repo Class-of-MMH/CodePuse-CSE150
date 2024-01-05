@@ -47,6 +47,14 @@ public: int x,y;
     }
 };
 
+void drawScoreLife(int score, int life){
+    COORD coord;
+    coord.X=SCREEN_WIDTH+3;
+    coord.Y=SCREEN_HEIGHT-3;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+    cout<< "Score: "<<score<<" | Life: "<<life;
+}
+
 int main(){
   
 cout<<"Instructions: "<<endl;
