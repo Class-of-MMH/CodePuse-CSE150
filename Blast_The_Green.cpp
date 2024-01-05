@@ -42,6 +42,28 @@ public: int x,y;
     }
 };
 
+
+void drawBalloon(const Balloon& balloon,char*buffer){
+    switch(balloon.color){
+        case 'g':
+            buffer[balloon.x+balloon.y*SCREEN_WIDTH]='G';
+            buffer[(balloon.x-1)+(balloon.y+1)*SCREEN_WIDTH]='G';
+            buffer[balloon.x+(balloon.y+1)*SCREEN_WIDTH]='G';
+            buffer[(balloon.x + 1) + (balloon.y + 1) * SCREEN_WIDTH]='G';
+            buffer[balloon.x+(balloon.y+2)*SCREEN_WIDTH]='G';
+            break;
+
+        case 'r':
+            buffer[balloon.x+balloon.y*SCREEN_WIDTH]='R';
+            buffer[(balloon.x-1)+(balloon.y+1)*SCREEN_WIDTH]='R';
+            buffer[balloon.x+(balloon.y+1)*SCREEN_WIDTH]='R';
+            buffer[(balloon.x+1)+(balloon.y +1)*SCREEN_WIDTH]='R';
+            buffer[balloon.x+(balloon.y+2)*SCREEN_WIDTH]='R';
+            break;
+    }
+}
+
+
 int main(){
   
 cout<<"Instructions: "<<endl;
