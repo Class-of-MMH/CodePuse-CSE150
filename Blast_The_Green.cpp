@@ -28,6 +28,9 @@ public:int x;
         }
     }
 };
+void drawPin(const Pin&pin,char*buffer){
+    buffer[pin.x+(SCREEN_HEIGHT-2)*SCREEN_WIDTH]='^';
+}
 
 class Balloon{
 public: int x,y;
