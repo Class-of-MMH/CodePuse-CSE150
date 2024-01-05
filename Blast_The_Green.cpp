@@ -22,7 +22,11 @@ cout << "##Press right and left arrow keys \nto move the pin."<<endl;
 cout<<"##The game is end when the life become  0 "<<endl;
 cout<<endl;
 system("pause");
-
+srand(static_cast<unsigned>(time(0)));
+char*buffer=new char[SCREEN_WIDTH*SCREEN_HEIGHT];
+memset(buffer, ' ', SCREEN_WIDTH*SCREEN_HEIGHT);
+Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g'};
+Pin pin;
   
 return 0;
 }
