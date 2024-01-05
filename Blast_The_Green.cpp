@@ -40,26 +40,26 @@ Pin pin;
 int balloonTimer=0;
 int score=0;
 int life=3;
- while(life>0){
-        memset(buffer, ' ',SCREEN_WIDTH*SCREEN_HEIGHT);
+while(life>0){
+memset(buffer, ' ',SCREEN_WIDTH*SCREEN_HEIGHT);
 
-        drawBoundary(buffer);
+drawBoundary(buffer);
 
-        if(balloonTimer% BALLOON_SPEED==0){
-            for(int i=0;i<NUM_BALLOONS;++i){
-                balloons[i].move();
-                drawBalloon(balloons[i],buffer);
+if(balloonTimer% BALLOON_SPEED==0){
+for(int i=0;i<NUM_BALLOONS;++i){
+balloons[i].move();
+drawBalloon(balloons[i],buffer);
 
-                if(balloons[i].y==SCREEN_HEIGHT-2&&abs(balloons[i].x-pin.x)<2){
-                    if(balloons[i].color =='g'){
-                        score+=10;
-                    }else if(balloons[i].color == 'r'){
-                        life--;
-                    }
-                    balloons[i].resetPosition();
-                }
-            }
-        }
+if(balloons[i].y==SCREEN_HEIGHT-2&&abs(balloons[i].x-pin.x)<2){
+if(balloons[i].color =='g'){
+score+=10;
+}else if(balloons[i].color == 'r'){
+life--;
+}
+balloons[i].resetPosition();
+}
+}
+}
 drawPin(pin, buffer);
 drawScoreLife(score, life);
   
