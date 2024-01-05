@@ -57,7 +57,7 @@ system("pause");
 srand(static_cast<unsigned>(time(0)));
 char*buffer=new char[SCREEN_WIDTH*SCREEN_HEIGHT];
 memset(buffer, ' ', SCREEN_WIDTH*SCREEN_HEIGHT);
-Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g'};
+Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g','r'};
 Pin pin;
   
 int balloonTimer=0;
