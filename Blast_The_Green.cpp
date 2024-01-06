@@ -12,7 +12,8 @@ const int PIN_SPEED=5;
 const int BALLOON_SPEED=1;
 
 class Pin{
-public:int x;
+public:
+int x;
 
     Pin():x(SCREEN_WIDTH/2){}
 
@@ -33,11 +34,11 @@ void drawPin(const Pin&pin,char*buffer){
 }
 
 class Balloon{
-public: int x,y;
-    char color;
-
-    Balloon(char c):color(c){
-        resetPosition();
+public:
+int x,y;
+char color;
+Balloon(char c):color(c){
+resetPosition();
     }
 
 
@@ -144,6 +145,14 @@ balloons[i].resetPosition();
 drawPin(pin, buffer);
 drawScoreLife(score, life);
 
+ if(GetAsyncKeyState(VK_LEFT)&0x8000){
+            pin.moveLeft();
+        }
+
+        if(GetAsyncKeyState(VK_RIGHT)&0x8000){
+            pin.moveRight();
+        }
+    
 gotoxy(0, 0);
 for(int i=0; i<SCREEN_HEIGHT;++i){
 for(int j=0; j<SCREEN_WIDTH;++j) {
