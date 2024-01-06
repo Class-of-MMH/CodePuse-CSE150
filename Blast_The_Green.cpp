@@ -7,7 +7,7 @@ using namespace std;
 
 const int SCREEN_WIDTH=40;
 const int SCREEN_HEIGHT=25;
-const int NUM_BALLOONS=4;
+const int NUM_BALLOONS=3;
 const int PIN_SPEED=5;
 const int BALLOON_SPEED=1;
 
@@ -116,7 +116,7 @@ system("pause");
 srand(static_cast<unsigned>(time(0)));
 char*buffer=new char[SCREEN_WIDTH*SCREEN_HEIGHT];
 memset(buffer, ' ', SCREEN_WIDTH*SCREEN_HEIGHT);
-Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g','r'};
+Balloon balloons[NUM_BALLOONS]={'g', 'r', 'g'};
 Pin pin;
   
 int balloonTimer=0;
