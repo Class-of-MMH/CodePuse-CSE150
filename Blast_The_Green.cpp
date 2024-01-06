@@ -167,5 +167,12 @@ if(balloonTimer>=BALLOON_SPEED){
             }
 Sleep(100);
 }
+ gotoxy(15, 8);
+cout<<"Game Over!"<<endl;
+gotoxy(15, 9);
+cout<<"Final Score: "<<score<<endl;
+_sleep(500);
+_getch();
+delete[] buffer;
 return 0;
 }
