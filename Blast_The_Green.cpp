@@ -34,7 +34,7 @@ Pin():x(SCREEN_WIDTH/2){}
 };
 
 void drawPin(const Pin&pin,char*buffer){
-    buffer[pin.x+(SCREEN_HEIGHT-2)*SCREEN_WIDTH]='^';
+    buffer[pin.x+(SCREEN_HEIGHT-2)*SCREEN_WIDTH]='#';
 }
 
 class Balloon{
