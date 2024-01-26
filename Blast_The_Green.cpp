@@ -48,7 +48,7 @@ class Balloon{
 
  void resetPosition(){
         x = ((rand() % ((SCREEN_WIDTH-6)/4)) + 1) * 4;
-        y=0;
+        y=1;
     }
 
      void move(){
