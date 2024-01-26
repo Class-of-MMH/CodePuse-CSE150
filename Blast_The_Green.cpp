@@ -20,14 +20,14 @@ int x;
 
 Pin():x(SCREEN_WIDTH/2){}
  void moveLeft(){
-        if(x>1){
+        if(x>6){
             x -=PIN_SPEED;
         }
     }
 
 
      void moveRight(){
-        if(x<SCREEN_WIDTH-4){
+        if(x<SCREEN_WIDTH-6){
             x+=PIN_SPEED;
         }
     }
@@ -47,7 +47,7 @@ class Balloon{
 
 
  void resetPosition(){
-        x = ((rand() % ((SCREEN_WIDTH-4)/4)) + 1) * 4;
+        x = ((rand() % ((SCREEN_WIDTH-6)/4)) + 1) * 4;
         y=0;
     }
 
@@ -88,13 +88,13 @@ void drawScoreLife(int score, int life){
 }
 void drawBoundary(char*buffer){
     for (int i = 0;i <SCREEN_WIDTH;++i){
-        buffer[i]='#';
-        buffer[i+(SCREEN_HEIGHT-1)*SCREEN_WIDTH]='#';
+        buffer[i]='-';
+        buffer[i+(SCREEN_HEIGHT-1)*SCREEN_WIDTH]='-';
     }
 
     for (int i=1;i<SCREEN_HEIGHT-1;++i){
-        buffer[i*SCREEN_WIDTH]='#';
-        buffer[i*SCREEN_WIDTH+SCREEN_WIDTH-1]='#';
+        buffer[i*SCREEN_WIDTH]='|';
+        buffer[i*SCREEN_WIDTH+SCREEN_WIDTH-1]='|';
     }
 }
 void gotoxy(int x, int y){
