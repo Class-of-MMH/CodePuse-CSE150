@@ -5,8 +5,8 @@
 #include<iostream>
 using namespace std;
 
-const int SCREEN_WIDTH=40;
-const int SCREEN_HEIGHT=25;
+const int SCREEN_WIDTH=60;
+const int SCREEN_HEIGHT=27;
 const int NUM_BALLOONS=4;
 const int PIN_SPEED=5;
 const int BALLOON_SPEED=1;
@@ -23,7 +23,7 @@ public:int x;
     }
 
      void moveRight(){
-        if(x<SCREEN_WIDTH-2){
+        if(x<SCREEN_WIDTH-4){
             x+=PIN_SPEED;
         }
     }
@@ -42,7 +42,7 @@ public: int x,y;
 
 
  void resetPosition(){
-        x=rand()%(SCREEN_WIDTH-2)+1;
+        x = ((rand() % ((SCREEN_WIDTH-4)/4)) + 1) * 4;
         y=0;
     }
 
